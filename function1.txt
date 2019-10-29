@@ -1,0 +1,37 @@
+import numpy as np
+
+np.array( [ ] )#生成数组
+np.arange( ) #生成一个有x个元素且从0开始的数组
+np.full( (x,y),True ) #生成x行y列并由True填充的数组
+arr[ arr%2 == 0] #显示数组中偶数
+arr[ arr%2 == 0] = -3 #偶数替换
+arr = np.arange(14).reshape(2,-1) #重新定型，后一个为负时会向下折叠
+np.vstack( [a,b] ) #垂直合并
+np.hstack( [a,b] ) #水平合并
+np.intersect1d( a,b ) #两数组相同元素
+np.setdiff1d( b,a ) #在b数组中移除与a数组相同的值
+np.where(a==b) #显示两数组对应相同的位置
+arr[[1,0,2],:] #排列数组位置
+np.random(x,y) #生成x行y列小于1随机数数组
+np.set_printoptions(precision=4) #控制小数点位数
+
+iris = np.genfromtxt(url, delimiter=',', dtype='object')
+sepalwidth = np.genfromtxt(url, delimiter=',', dtype='float', usecols=[1])
+mu, med, sd = np.mean(sepalwidth), np.median(sepalwidth), np.std(sepalwidth)
+print(mu, med, sd)  #求mean,median,standard deviation
+
+def maxx(x, y):
+    """Get the maximum of two items"""
+    if x >= y:
+        return x
+    else:
+        return y
+
+maxx(2, 5)
+get_max = np.vectorize(maxx,otypes=[float])
+a = np.array([5, 7, 9, 8, 6, 4, 5])
+b = np.array([6, 3, 4, 8, 9, 7, 1])
+get_max(a,b)
+
+
+
