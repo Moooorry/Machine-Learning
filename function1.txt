@@ -1,37 +1,46 @@
-import numpy as np
+#numpyçš„å‡½æ•°
+    import numpy as np
 
-np.array( [ ] )#Éú³ÉÊı×é
-np.arange( ) #Éú³ÉÒ»¸öÓĞx¸öÔªËØÇÒ´Ó0¿ªÊ¼µÄÊı×é
-np.full( (x,y),True ) #Éú³ÉxĞĞyÁĞ²¢ÓÉTrueÌî³äµÄÊı×é
-arr[ arr%2 == 0] #ÏÔÊ¾Êı×éÖĞÅ¼Êı
-arr[ arr%2 == 0] = -3 #Å¼ÊıÌæ»»
-arr = np.arange(14).reshape(2,-1) #ÖØĞÂ¶¨ĞÍ£¬ºóÒ»¸öÎª¸ºÊ±»áÏòÏÂÕÛµş
-np.vstack( [a,b] ) #´¹Ö±ºÏ²¢
-np.hstack( [a,b] ) #Ë®Æ½ºÏ²¢
-np.intersect1d( a,b ) #Á½Êı×éÏàÍ¬ÔªËØ
-np.setdiff1d( b,a ) #ÔÚbÊı×éÖĞÒÆ³ıÓëaÊı×éÏàÍ¬µÄÖµ
-np.where(a==b) #ÏÔÊ¾Á½Êı×é¶ÔÓ¦ÏàÍ¬µÄÎ»ÖÃ
-arr[[1,0,2],:] #ÅÅÁĞÊı×éÎ»ÖÃ
-np.random(x,y) #Éú³ÉxĞĞyÁĞĞ¡ÓÚ1Ëæ»úÊıÊı×é
-np.set_printoptions(precision=4) #¿ØÖÆĞ¡ÊıµãÎ»Êı
+    np.array( [ ] )#ç”Ÿæˆæ•°ç»„
+    np.arange( ) #ç”Ÿæˆä¸€ä¸ªæœ‰xä¸ªå…ƒç´ ä¸”ä»0å¼€å§‹çš„æ•°ç»„
+    np.full( (x,y),True ) #ç”Ÿæˆxè¡Œyåˆ—å¹¶ç”±Trueå¡«å……çš„æ•°ç»„
+    arr[ arr%2 == 0] #æ˜¾ç¤ºæ•°ç»„ä¸­å¶æ•°
+    arr[ arr%2 == 0] = -3 #å¶æ•°æ›¿æ¢
+    arr = np.arange(14).reshape(2,-1) #é‡æ–°å®šå‹ï¼Œåä¸€ä¸ªä¸ºè´Ÿæ—¶ä¼šå‘ä¸‹æŠ˜å 
+    np.vstack( [a,b] ) #å‚ç›´åˆå¹¶
+    np.hstack( [a,b] ) #æ°´å¹³åˆå¹¶
+    np.intersect1d( a,b ) #ä¸¤æ•°ç»„ç›¸åŒå…ƒç´ 
+    np.setdiff1d( b,a ) #åœ¨bæ•°ç»„ä¸­ç§»é™¤ä¸aæ•°ç»„ç›¸åŒçš„å€¼
+    np.where(a==b) #æ˜¾ç¤ºä¸¤æ•°ç»„å¯¹åº”ç›¸åŒçš„ä½ç½®
+    arr[[1,0,2],:] #æ’åˆ—æ•°ç»„ä½ç½®
+    np.random(x,y) #ç”Ÿæˆxè¡Œyåˆ—å°äº1éšæœºæ•°æ•°ç»„
+    np.set_printoptions(precision=4) #æ§åˆ¶å°æ•°ç‚¹ä½æ•°
 
-iris = np.genfromtxt(url, delimiter=',', dtype='object')
-sepalwidth = np.genfromtxt(url, delimiter=',', dtype='float', usecols=[1])
-mu, med, sd = np.mean(sepalwidth), np.median(sepalwidth), np.std(sepalwidth)
-print(mu, med, sd)  #Çómean,median,standard deviation
+    iris = np.genfromtxt(url, delimiter=',', dtype='object')
+    sepalwidth = np.genfromtxt(url, delimiter=',', dtype='float', usecols=[1])
+    mu, med, sd = np.mean(sepalwidth), np.median(sepalwidth), np.std(sepalwidth)
+    print(mu, med, sd)  #æ±‚mean,median,standard deviation
 
-def maxx(x, y):
-    """Get the maximum of two items"""
-    if x >= y:
-        return x
-    else:
-        return y
+    def maxx(x, y):
+        """Get the maximum of two items"""
+        if x >= y:
+            return x
+        else:
+            return y
 
-maxx(2, 5)
-get_max = np.vectorize(maxx,otypes=[float])
-a = np.array([5, 7, 9, 8, 6, 4, 5])
-b = np.array([6, 3, 4, 8, 9, 7, 1])
-get_max(a,b)
+    maxx(2, 5)
+    get_max = np.vectorize(maxx,otypes=[float])
+    a = np.array([5, 7, 9, 8, 6, 4, 5])
+    b = np.array([6, 3, 4, 8, 9, 7, 1])
+    get_max(a,b)
 
+#Vectors and Matrice
+    import numpy.linalg as linalg
+
+    .shape() #æ˜¾ç¤ºè¡Œåˆ—
+    .dot() #ç‚¹ä¹˜
+    .transpose() #è½¬ç½®
+    linalg.inv() #æ±‚é€†çŸ©é˜µ(åªèƒ½æ±‚äºŒæ¬¡çŸ©é˜µçš„é€†)
+    linalg.solve(a,b) #æ±‚a^-1*b
 
 
