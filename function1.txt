@@ -36,6 +36,7 @@
 
 #Vectors and Matrice
     import numpy.linalg as linalg
+    import pandas as pd #测试数据的库
 
     .shape() #显示行列
     .dot() #点乘
@@ -43,4 +44,29 @@
     linalg.inv() #求逆矩阵(只能求二次矩阵的逆)
     linalg.solve(a,b) #求a^-1*b
 
+    data_trian = pd.read_csv('文件名')
+    data_test = pd.read_csv('文件名')
+    x_train = data_train['x'].values[()]
+    x_test = data_test['x'].values[()]
+    
+#画图
+    import matplotlib.pyplot as plt #绘图的库
+    
+    plt.clf()
+    plt.plot(x_train,y_train,'bo')
+    plt.savefig('trainingdata.png')
+    plt.show()
 
+#准备数据矩阵
+    xtext_tilde = np.column_stack((np.ones(x_test.shape),x_test))
+    beta_0 = 7, beta_1 = 6
+    betatilde = np.array([bet_0,beta_1])
+    yhat = xtest_tilde.dot(betatilde)
+    error = y_train - yhat
+    SSE = error.dot(error)
+
+# SSE function
+    def SSE(beta,x,y):
+        error = y - (np.column_stack((np.ones(x.shape),x)).dot(beta))
+        SSE = error.dot(error)
+        return SSE
