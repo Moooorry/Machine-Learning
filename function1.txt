@@ -70,3 +70,57 @@
         error = y - (np.column_stack((np.ones(x.shape),x)).dot(beta))
         SSE = error.dot(error)
         return SSE
+        
+# Sample
+    import numpy as np
+
+    # specify data points for beta0 and beta1 (from - 200 to 200, using 50 uniformly distributed points)
+    beta0Array = np.linspace(-200, 200, 50)
+    beta1Array = np.linspace(-200, 200, 50)
+
+    SSEarray = np.zeros((50,50))
+
+    for i in range(0,50):
+        for j in range(0,50):
+            beta = np.array([beta0Array[i], beta1Array[j]])
+            SSEarray[i,j] =  SSE(beta, x_train, y_train)
+        
+    SSEarray
+    
+#The cell ouputs the SSE for every grid position between -200 and 200 for both dimensions. For a better visualization, we can create a 3D plot. Run the following cell for doing so.
+
+    from mpl_toolkits.mplot3d import Axes3D
+    import matplotlib.pyplot as plt
+    from matplotlib import cm
+    from matplotlib.ticker import LinearLocator, FormatStrFormatter
+
+    fig = plt.figure()
+    ax = fig.gca(projection='3d')
+
+    beta0Grid, beta1Grid = np.meshgrid(beta0Array, beta1Array)
+
+    # Plot the surface.
+    surf = ax.plot_surface(beta0Grid, beta1Grid, SSEarray, cmap=cm.coolwarm,linewidth=0, antialiased=False)
+
+    # Add a color bar which maps values to colors.
+    fig.colorbar(surf, shrink=0.5, aspect=5)
+    plt.xlabel('beta0')
+    plt.ylabel('beta1')
+    plt.savefig('errorfunction.png')
+    plt.show()
+    
+#Minimization of the SSE
+   minIndex = np.argmin(SSEarray)
+    index1, index2 = np.unravel_index(minIndex, (50,50))
+
+    beta0 = beta0Array[index1]
+    beta1 = beta1Array[index2]
+
+    beta0, beta1 
+    
+# (Example)Define the function and its derivative
+    def h(x):
+        return 2 *(x**2 - 4) ** 2
+
+    def hd(x):
+        return 8*(x ** 2 - 4) * x
