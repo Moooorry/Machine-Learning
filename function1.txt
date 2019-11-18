@@ -124,3 +124,22 @@
 
     def hd(x):
         return 8*(x ** 2 - 4) * x
+# Gradient Descent Algorithm
+    import numpy as np
+    
+    x_old = [np.random.randn(),np.random.randn()]
+    x_new = [np.random.randn(),np.random.randn()]
+    epsilon = 0.00001
+    alpha = 0.01
+    
+    def grad(x):
+        return Final Result
+        
+    states = []
+    while abs(np.linalg.norm(np.array(x_new)-np.array(x_old)))>epsilon:
+        x_old = x_new
+        x_new = x_old - alpha*grad(x_old)
+        states.append(x_new)
+        print('x_new={}'.format(x_new))
+    print('Minimum occurs at {}'.format(x_new))
+    
